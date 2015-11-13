@@ -1,0 +1,25 @@
+= The history of testing framework in Ruby
+
+: author
+   Kouhei Sutou
+: institution
+   clearCode Inc.
+: content-source
+   RUbyKaigi 2015
+: date
+   2015-12-12
+: allotted-time
+   50m
+: theme
+   clear-code
+
+= Silver sponsor
+
+  # image
+  # src = images/clear-code-is-a-silver-sponsor.png
+  # relative_height = 100
+
+== slide property
+
+: enable-title-on-image
+   false
