@@ -23,3 +23,137 @@
 
 : enable-title-on-image
    false
+
+= Goal\n(('note:目標'))
+
+(('tag:center'))
+You get knowledge\n
+to choose\n
+suitable testing framework\n
+for ((*you*))
+
+(('tag:center'))
+(('note:自分にあったテスティングフレームワークを選ぶ知識を得ること'))
+
+= How did you choose?\n(('note:どうやって選んだ？'))
+
+  (1) Default?\n
+      (('note:デフォルトかどうか？'))
+  (2) Popularity?\n
+      (('note:人気？'))
+  (3) Feature?\n
+      (('note:機能？'))
+
+= Or\n(('note:あるいは'))
+
+Didn't choose?\n
+(('note:選ばなかった？'))
+
+= Recommended\n(('note:オススメ'))
+
+Choose you like\n
+(('note:好きなものを選ぶ'))
+
+= How to choose like\n(('note:好きなものを選ぶ方法'))
+
+Know options deeply\n
+(('note:それぞれの選択肢についてよく知る'))
+
+= Wrap up\n(('note:ここまでのまとめ'))
+
+  * Choose\n
+    (('note:選ぶ'))
+  * Know to choose\n
+    (('note:選ぶために知る'))
+
+= History\n(('note:歴史'))
+
+= Characters\n(('note:登場人物'))
+
+  # RT
+
+  testsupp, RubyUnit
+  Lapidary, rubyunit
+  Test::Unit, test/unit
+  test-unit, miniunit
+  minitest, RSpec
+
+= Ruby 1.3 times\n(('note:Ruby 1.3の時代'))
+
+  * 1998-1999
+  * The first testing framework for Ruby was released\n
+    (('note:最初のRuby用のテスティングフレームワークがリリース'))
+    * testsupp
+
+= testsupp
+
+  * 1999-4-11: [ruby-talk:00634]\n
+    ANN: testsupp.rb 0.1
+  * Perl's (({Test})) like API\n
+    (('note:PerlのTestモジュールのようなAPI'))
+    * Perl's (({Test})) is since 1998\n
+      (('note:PerlのTestモジュールは1998にできた'))
+
+= testsupp: API
+
+  # coderay ruby
+  require "testsupp"
+  include TestSupp
+
+  start_tests
+  ok "Hello" == "Hello"
+  end_tests
+
+= Ruby 1.4 times\n(('note:Ruby 1.4の時代'))
+
+  * 1999-2000
+  * The first xUnit testing framework for Ruby was released\n
+    (('note:最初のRuby用のxUnit系テスティングフレームワークがリリース'))
+    * RubyUnit
+
+= RubyUnit
+
+  * Since 1999-11-20 at least\n
+    (('note:少なくとも1999年11月20日には存在していた'))
+    * [ruby-list:18594]\n
+      (('note:"RubyUnit のページは当分更新されないと思うです．"'))
+  * The first xUnit testing framework for Ruby\n
+    (('note:最初のRuby用のxUnit系テスティングフレームワーク'))
+
+= RubyUnit: API
+
+  # coderay ruby
+  require "runit/testcase"
+  class Test < RUNIT::TestCase
+    def test_XXX
+      assert_equal(1, 1)
+    end
+  end
+
+= RubyUnit: FYI
+
+  * rubyunit gem exists since 2014-10-12\n
+    (('note:2014年10月12日からrubyunitというgemが存在する'))
+  * Not related product\n
+    (('note:関係のないプロダクト'))
+
+= Ruby 1.6 times\n(('note:Ruby 1.6の時代'))
+
+  * 2000-2002
+  * The second xUnit testing framework for Ruby was released\n
+    (('note:2つ目のRuby用のxUnit系テスティングフレームワークがリリース'))
+    * Lapidary
+
+= Lapidary
+
+= Ruby 1.6 times\n(('note:Ruby 1.6の時代'))
+
+  * Start trying to bundle a testing framework to Ruby
+    * RubyUnit + Lapidary = Test::Unit
+
+= Before Ruby 1.8\n(('note:Ruby 1.8以前'))
+
+  * Ruby 1.8.0: 
+  * Ruby doesn't bundle any testing framework\n
+    (('note:Rubyにはテスティングフレームワークがバンドルされていなかった'))
+
