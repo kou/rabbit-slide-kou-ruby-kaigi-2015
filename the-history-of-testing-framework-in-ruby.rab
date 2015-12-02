@@ -27,44 +27,12 @@
 = Goal\n(('note:目標'))
 
 (('tag:center'))
-You get knowledge\n
-to choose\n
-suitable testing framework\n
-for ((*you*))
+(('tag:large'))
+You know about\n
+(({/\Atest.+unit\z/i}))
 
 (('tag:center'))
-(('note:自分にあったテスティングフレームワークを選ぶ知識を得ること'))
-
-= How did you choose?\n(('note:どうやって選んだ？'))
-
-  (1) Default?\n
-      (('note:デフォルトかどうか？'))
-  (2) Popularity?\n
-      (('note:人気？'))
-  (3) Feature?\n
-      (('note:機能？'))
-
-= Or\n(('note:あるいは'))
-
-Didn't choose?\n
-(('note:選ばなかった？'))
-
-= Recommended\n(('note:オススメ'))
-
-Choose you like\n
-(('note:好きなものを選ぶ'))
-
-= How to choose like\n(('note:好きなものを選ぶ方法'))
-
-Know options deeply\n
-(('note:それぞれの選択肢についてよく知る'))
-
-= Wrap up\n(('note:ここまでのまとめ'))
-
-  * Choose\n
-    (('note:選ぶ'))
-  * Know to choose\n
-    (('note:選ぶために知る'))
+(('note:(({/\\Atest.+unit\\z/i}))を知ること'))
 
 = History\n(('note:歴史'))
 
