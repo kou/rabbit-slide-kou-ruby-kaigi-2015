@@ -34,6 +34,36 @@ You know about\n
 (('tag:center'))
 (('note:(({/\\Atest.+unit\\z/i}))を知ること'))
 
+= Test\n(('note:テスト'))
+
+(('tag:center'))
+Which Rubies do include\n
+(({/\Atest.+unit\z/i}))?\n
+(('note:(({/\Atest.+unit\z/i}))を含んでいるRubyはどれでしょう？'))
+
+  # RT
+  delimiter = [|]
+
+  (('1.4'))   | (('1.6'))   | (('1.8'))
+  (('1.9.1')) | (('1.9.2')) | (('1.9.3'))
+  (('2.0'))   | (('2.1'))   | (('2.2'))
+  (('2.3'))   |             |
+
+= Answer\n(('note:答え'))
+
+(('tag:center'))
+Which Rubies do include\n
+(({/\Atest.+unit\z/i}))?\n
+(('note:(({/\Atest.+unit\z/i}))を含んでいるRubyはどれでしょう？'))
+
+  # RT
+  delimiter = [|]
+
+  (('1.4'))   | (('1.6'))   | ((*1.8*))
+  ((*1.9.1*)) | ((*1.9.2*)) | ((*1.9.3*))
+  ((*2.0*))   | ((*2.1*))   | ((*2.2*))
+  ((*2.3*))   |             |
+
 = History\n(('note:歴史'))
 
 = Characters\n(('note:登場人物'))
@@ -162,7 +192,8 @@ Not Ruby-ish\n
 
 = Test::Unit
 
-  * Since 2012-02
+  * Since 2002-02:\n
+    [ruby-talk:34744]
   * The first (({\A/test.+unit\z/}))\n
     (('note:最初の(({/\\Atest.+unit\\z/i}))'))
   * The author is the author of Lapidary\n
@@ -204,7 +235,7 @@ Ruby-ish\n
 
 = Ruby 1.8 times: 1\n(('note:Ruby 1.8の時代：1'))
 
-  * 2003-2013: [ruby-talk:34744]
+  * 2003-2013
   * Ruby bundles a testing framework\n
     (('note:Rubyがテスティングフレームワークをバンドルした'))
     * Test::Unit aka test/unit\n
@@ -232,6 +263,11 @@ Ruby-ish\n
     * Can't maintain Test::Unit because it's too complex\n
       (('note:Test::Unitは複雑すぎてメンテナンスできない'))
 
+= Ruby 1.8 times: 2\n(('note:Ruby 1.8の時代：2'))
+
+RSpec was born\n
+(('note:RSpec誕生'))
+
 = RSpec
 
   * Since 2005-08
@@ -247,7 +283,7 @@ Ruby-ish\n
   require "spec"
   class SpecAdd < Spec::Context
     def add
-      (1 + 2).should_equal(3)
+      (1 + 2).should_equal 3
     end
   end
 
@@ -277,3 +313,69 @@ Engl-ish\n
     (('note:Test::Unitより機能が多い'))
     * Mock, Not implemented, ...\n
       (('note:モックや未実装など'))
+
+= Ruby 1.9 times\n(('note:Ruby 1.9の時代'))
+
+  * 2009-2014
+  * Ruby drops Test::Unit\n
+    (('note:RubyがTest::Unitを捨てた'))
+    * Because Test::Unit is too complex for new maintainer\n
+      (('note:新メンテナーにはTest::Unitは複雑すぎるから'))
+
+= Test::Unit → test-unit
+
+  * Released as test-unit gem\n
+    (('note:test-unit gemとしてリリース'))
+    * test-unit 1.2.3 ==\n
+      Test::Unit in Ruby 1.8\n
+      (('note:test-unit 1.2.3はRuby 1.8のTest::Unitと同じ'))
+  * Maintainer is changed\n
+    (('note:メンテナー交代'))
+    * Me\n
+      (('note:私'))
+
+= test-unit
+
+  * Since 2008-03
+  * Active development\n
+    (('note:開発は活発'))
+  * High backward compatibility\n
+    (('note:高い後方互換性'))
+    * Exception: Inheritance, Mixin\n
+      (('note:例外：継承時・Mixin時の挙動'))
+
+= minitest
+
+  * Since 2008-10
+  * Active development\n
+    (('note:開発は活発'))
+  * The author is the new maintainer of Test::Unit\n
+    (('note:作者はTest::Unitの新メンテナー'))
+
+= minitest and Test::Unit
+
+  * Mini, simple, clean and fast\n
+    (('note:小さくてシンプルでキレイで速い'))
+  * The author says:\n
+    (('note:作者曰く'))
+    * 100% Test::Unit compatible\n
+      (('note:Test::Unitと100%互換'))
+
+= test/unit in Ruby 1.9
+
+  * Not Test::Unit\n
+    (('note:Test::Unitではない'))
+  * Wrapper of minitest\n
+    (('note:minitestのラッパー'))
+    * Ruby developers develop it\n
+      not minitest author\n
+      (('note:minitestの作者ではなくRuby開発者が開発'))
+  * (({/\Atest.+unit\z/i}))
+
+= Ruby 2.0 times\n(('note:Ruby 2.0の時代'))
+
+  * 2013-2015
+  * No highly important things\n
+    (('note:特筆すべきことはない'))
+    * test-unit, minitest and RSpec were actively developed\n
+      (('note:test-unitもminitestもRSpecも活発に開発が進んでいた'))
