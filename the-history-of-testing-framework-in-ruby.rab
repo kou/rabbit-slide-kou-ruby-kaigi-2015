@@ -1,4 +1,4 @@
-= The history of\ntesting framework\nin Ruby
+= The history of\n testing framework\n in Ruby
 
 : author
    Kouhei Sutou
@@ -108,7 +108,7 @@ Ruby-ish\n
 
   * Test generator exists\n
     (('note:テストジェネレーターがある'))
-  * Test execution command exists\n
+  * Test exec command exists\n
     (('note:テスト実行コマンドがある'))
   * (('wait'))
     (('note:rubyunit gem exists since 2014-10-12'))\n
@@ -204,7 +204,7 @@ Ruby-ish\n
 
 = Ruby 1.8 times: 1\n(('note:Ruby 1.8の時代：1'))
 
-  * 2003-2013
+  * 2003-2013: [ruby-talk:34744]
   * Ruby bundles a testing framework\n
     (('note:Rubyがテスティングフレームワークをバンドルした'))
     * Test::Unit aka test/unit\n
@@ -243,6 +243,7 @@ Ruby-ish\n
 = RSpec 0.1.0: API
 
   # coderay ruby
+  # 2005-08
   require "spec"
   class SpecAdd < Spec::Context
     def add
@@ -253,9 +254,26 @@ Ruby-ish\n
 = RSpec: 1.0.0: API
 
   # coderay ruby
+  # 2007-05
   require "spec"
   describe "Add" do
     it "should support positive + positive" do
       (1 + 2).should == 3
     end
   end
+
+= RSpec 1.0.0: Impression\n(('note:感想'))
+
+Engl-ish\n
+(('note:英語っぽい'))
+
+= RSpec: FYI\n(('note:参考情報'))
+
+  * Test exec command exists\n
+    (('note:テスト実行コマンドがある'))
+    * RubyUnit like\n
+      (('note:RubyUnitみたい'))
+  * More features (('note:than Test::Unit'))\n
+    (('note:Test::Unitより機能が多い'))
+    * Mock, Not implemented, ...\n
+      (('note:モックや未実装など'))
