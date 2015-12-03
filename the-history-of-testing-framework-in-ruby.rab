@@ -41,7 +41,7 @@ You know about\n
   # RT
 
   testsupp, RubyUnit
-  Lapidary, rubyunit
+  Lapidary,
   Test::Unit, test/unit
   test-unit, miniunit
   minitest, RSpec
@@ -59,8 +59,8 @@ You know about\n
     ANN: testsupp.rb 0.1
   * Perl's (({Test})) like API\n
     (('note:PerlのTestモジュールのようなAPI'))
-    * Perl's (({Test})) is since 1998\n
-      (('note:PerlのTestモジュールは1998にできた'))
+    * Perl's (({Test})) exists since 1998\n
+      (('note:PerlのTestモジュールは1998からある'))
 
 = testsupp: API
 
@@ -76,7 +76,8 @@ You know about\n
 
   * 1999-2000
   * The first xUnit testing framework for Ruby was released\n
-    (('note:最初のRuby用のxUnit系テスティングフレームワークがリリース'))
+    (('note:最初のRuby用のxUnit系テスティングフレームワークが'))\n
+    (('note:リリース'))
     * RubyUnit
 
 = RubyUnit
@@ -93,35 +94,168 @@ You know about\n
   # coderay ruby
   require "runit/testcase"
   class Test < RUNIT::TestCase
-    def test_XXX
-      assert_equal(1, 1)
+    def test_add
+      assert_equal(3, 1 + 2)
     end
   end
 
-= RubyUnit: FYI
+= RubyUnit: Impression\n(('note:感想'))
 
-  * rubyunit gem exists since 2014-10-12\n
-    (('note:2014年10月12日からrubyunitというgemが存在する'))
-  * Not related product\n
-    (('note:関係のないプロダクト'))
+Ruby-ish\n
+(('note:Rubyっぽい'))
 
-= Ruby 1.6 times\n(('note:Ruby 1.6の時代'))
+= RubyUnit: FYI\n(('note:参考情報'))
+
+  * Test generator exists\n
+    (('note:テストジェネレーターがある'))
+  * Test execution command exists\n
+    (('note:テスト実行コマンドがある'))
+  * (('wait'))
+    (('note:rubyunit gem exists since 2014-10-12'))\n
+    (('note:rubyunitというgemが存在する'))
+    * (('note:Not related product'))\n
+      (('note:関係のないプロダクト'))
+
+= Ruby 1.6 times: 1\n(('note:Ruby 1.6の時代：1'))
 
   * 2000-2002
   * The second xUnit testing framework for Ruby was released\n
-    (('note:2つ目のRuby用のxUnit系テスティングフレームワークがリリース'))
+    (('note:2つ目のRuby用のxUnit系テスティングフレームワークが'))\n
+    (('note:リリース'))
     * Lapidary
 
 = Lapidary
 
-= Ruby 1.6 times\n(('note:Ruby 1.6の時代'))
+  * The first release was 2001-03-20\n
+    (('note:最初のリリースは2001年3月20日'))
+  * The second xUnit testing framework for Ruby\n
+    (('note:2つ目のRuby用のxUnit系テスティングフレームワーク'))
+    * Maybe\n
+      (('note:たぶん'))
 
-  * Start trying to bundle a testing framework to Ruby
+= Lapidary: API
+
+  # coderay ruby
+  require "Lapidary/TestCase"
+  class TC_Adder < Lapidary::TestCase
+    def testAdd
+      assertEqual(3, 1 + 2)
+    end
+  end
+
+= Lapidary: Impression\n(('note:感想'))
+
+Not Ruby-ish\n
+(('note:Rubyっぽくない'))
+
+= Lapidary: FYI\n(('note:参考情報'))
+
+  * Has GUI test runner\n
+    (('note:GUIのテスト実行機能アリ'))
+
+= Ruby 1.6 times: 2\n(('note:Ruby 1.6の時代：2'))
+
+  * Start trying to bundle a testing framework to Ruby\n
+    (('note:テスティングフレームワークをRubyにバンドルする'))\n
+    (('note:試みを開始'))
     * RubyUnit + Lapidary = Test::Unit
 
-= Before Ruby 1.8\n(('note:Ruby 1.8以前'))
+= Test::Unit
 
-  * Ruby 1.8.0: 
-  * Ruby doesn't bundle any testing framework\n
-    (('note:Rubyにはテスティングフレームワークがバンドルされていなかった'))
+  * Since 2012-02
+  * The first (({\A/test.+unit\z/}))\n
+    (('note:最初の(({/\\Atest.+unit\\z/i}))'))
+  * The author is the author of Lapidary\n
+    (('note:Lapidaryの作者が作者'))
 
+= Test::Unit: API
+
+  # coderay ruby
+  require "test/unit"
+  class TC_Adder < Test::Unit::TestCase
+    def test_add
+      assert_equal(3, 1 + 2)
+    end
+  end
+
+= Test::Unit: Impression\n(('note:感想'))
+
+Ruby-ish\n
+(('note:Rubyっぽい'))
+
+= Test::Unit: FYI 1\n(('note:参考情報1'))
+
+  * API is based on RubyUnit\n
+    (('note:APIはRubyUnitのよう'))
+    * Has RubyUnit compatible API\n
+      (('note:RubyUnit互換APIアリ'))
+  * Impl. is based on Lapidary\n
+    (('note:実装はLapidaryベース'))
+    * Has GUI test runner\n
+      (('note:GUIのテスト実行機能アリ'))
+
+= Wrap up: Before Ruby 1.8\n(('note:Ruby 1.8の前までのまとめ'))
+
+  * testsupp: Perl like API
+  * RubyUnit: Rubyish xUnit
+  * Lapidary: Not Rubyish xUnit
+  * Test::Unit:
+    * RubyUnit API + Lapidary Impl.
+
+= Ruby 1.8 times: 1\n(('note:Ruby 1.8の時代：1'))
+
+  * 2003-2013
+  * Ruby bundles a testing framework\n
+    (('note:Rubyがテスティングフレームワークをバンドルした'))
+    * Test::Unit aka test/unit\n
+      (('note:バンドルされたのはTest::Unit'))\n
+      (('note:test/unitとも呼ばれる'))
+
+= FYI: Why test/unit?\n(('note:参考情報：なぜtest/unitと呼ぶか'))
+
+  # coderay ruby
+  require "test/unit"
+
+= Test::Unit in Ruby 1.8\n(('note:Ruby 1.8バンドル後のTest::Unit'))
+
+  * No active development\n
+    (('note:開発は停滞'))
+  * Maintainer is changed\n
+    (('note:メンテナー交代'))
+    * The author of minitest\n
+      (('note:後のminitestの作者'))
+
+= Test::Unit:\nnew maintainer\n(('note:新しいメンテナー'))
+
+  * New maintainer says:\n
+    (('note:新メンテナー曰く'))
+    * Can't maintain Test::Unit because it's too complex\n
+      (('note:Test::Unitは複雑すぎてメンテナンスできない'))
+
+= RSpec
+
+  * Since 2005-08
+  * Tool for Behavior Driven Development\n
+    (('note:振る舞い駆動開発用のツール'))
+  * Active development\n
+    (('note:開発は活発'))
+
+= RSpec 0.1.0: API
+
+  # coderay ruby
+  require "spec"
+  class SpecAdd < Spec::Context
+    def add
+      (1 + 2).should_equal(3)
+    end
+  end
+
+= RSpec: 1.0.0: API
+
+  # coderay ruby
+  require "spec"
+  describe "Add" do
+    it "should support positive + positive" do
+      (1 + 2).should == 3
+    end
+  end
