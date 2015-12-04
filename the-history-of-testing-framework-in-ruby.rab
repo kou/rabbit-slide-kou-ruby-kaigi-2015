@@ -258,7 +258,7 @@ Ruby-ish\n
 
 = Test::Unit:\nnew maintainer\n(('note:新しいメンテナー'))
 
-  * New maintainer says:\n
+  * New maintainer said:\n
     (('note:新メンテナー曰く'))
     * Can't maintain Test::Unit because it's too complex\n
       (('note:Test::Unitは複雑すぎてメンテナンスできない'))
@@ -314,6 +314,15 @@ Engl-ish\n
     * Mock, Not implemented, ...\n
       (('note:モックや未実装など'))
 
+= Wrap up: Ruby 1.8 times\n(('note:Ruby 1.8時代のまとめ'))
+
+  * Ruby starts bundling Test::Unit (('note:((({/\\Atest.+unit\\z/i})))'))\n
+    (('note:RubyがTest::Unitのバンドルを始めた'))
+    * But Test::Unit was died...\n
+      (('note:バンドル後、Test::Unitは死んだ。。。'))
+  * RSpec was born and active\n
+    (('note:RSpecが生まれ、活発だった'))
+
 = Ruby 1.9 times\n(('note:Ruby 1.9の時代'))
 
   * 2009-2014
@@ -326,9 +335,9 @@ Engl-ish\n
 
   * Released as test-unit gem\n
     (('note:test-unit gemとしてリリース'))
-    * test-unit 1.2.3 ==\n
-      Test::Unit in Ruby 1.8\n
-      (('note:test-unit 1.2.3はRuby 1.8のTest::Unitと同じ'))
+    * Still (({/\Atest.+unit\z/i}))\n
+      (('note:名前変更後も(({/\Atest.+unit\z/i}))'))
+    * (('note:test-unit 1.2.3 == Test::Unit in Ruby 1.8'))
   * Maintainer is changed\n
     (('note:メンテナー交代'))
     * Me\n
@@ -356,26 +365,67 @@ Engl-ish\n
 
   * Mini, simple, clean and fast\n
     (('note:小さくてシンプルでキレイで速い'))
-  * The author says:\n
+  * The author said:\n
     (('note:作者曰く'))
     * 100% Test::Unit compatible\n
       (('note:Test::Unitと100%互換'))
 
 = test/unit in Ruby 1.9
 
-  * Not Test::Unit\n
-    (('note:Test::Unitではない'))
+  * Not Test::Unit (('note:but (({/\\Atest.+unit\\z/i}))'))\n
+    (('note:Test::Unitではないが(({/\\Atest.+unit\\z/i}))ではある'))
+  * Provide Test::Unit API\n
+    (('note:Test::Unit互換APIを提供'))
   * Wrapper of minitest\n
     (('note:minitestのラッパー'))
     * Ruby developers develop it\n
       not minitest author\n
       (('note:minitestの作者ではなくRuby開発者が開発'))
-  * (({/\Atest.+unit\z/i}))
+
+= Wrap up: Ruby 1.9 times\n(('note:Ruby 1.9時代のまとめ'))
+
+  * Ruby drops Test::Unit\n
+    (('note:RubyがTest::Unitを捨てた'))
+    * (('note:Test::Unit → test-unit gem'))
+  * Ruby bundles minitest\n
+    (('note:Rubyはminitestをバンドルした'))
+  * Ruby creates test/unit\n
+    (('note:(test/unit provides Test::Unit API)'))\n
+    (('note:RubyはTest::Unit APIを提供する(({test/unit}))を新しく作った'))
 
 = Ruby 2.0 times\n(('note:Ruby 2.0の時代'))
 
-  * 2013-2015
+  * 2013-
   * No highly important things\n
     (('note:特筆すべきことはない'))
     * test-unit, minitest and RSpec were actively developed\n
       (('note:test-unitもminitestもRSpecも活発に開発が進んでいた'))
+
+= Ruby 2.1 times: 1\n(('note:Ruby 2.1の時代：1'))
+
+  * 2014-
+  * minitest 5 introduced incompatible change\n
+    (('note:minitest 5で非互換の変更が入った'))
+
+= minitest 5
+
+  * test/unit maintainer said:\n
+    (('note:test/unitメンテナー曰く'))
+    * Can't maintain test/unit with minitest 5\n
+      (('note:minitest 5向けのtest/unitはメンテナンスできない'))
+  * test/unit for minitest was dropped\n
+    (('note:minitestのラッパーとしてのtest/unitを捨てた'))
+
+= Is no test/unit problem?\n(('note:test/unitがないことは問題なのか？'))
+
+  * Ruby uses test/unit for Ruby's test\n
+    (('note:RubyはRubyのテストにtest/unitを使っている'))
+    * No test/unit means existing tests can't be worked\n
+      (('note:test/unitがなくなると既存のテストが動かない'))
+
+= Solution: 1\n(('note:解決案：1'))
+
+  * Keep bundling and using minitest 4\n
+    (('note:minitest 4のバンドルを継続し、使い続ける'))
+    * Users will be confused because the latest Ruby doesn't bundle the latest minitest\n
+      (('note:最新のRubyに最新のminitestがバンドルされていないとユーザーは混乱しそう'))
