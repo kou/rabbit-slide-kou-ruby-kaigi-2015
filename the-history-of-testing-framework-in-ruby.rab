@@ -403,7 +403,7 @@ Engl-ish\n
 
 = Ruby 2.1 times: 1\n(('note:Ruby 2.1の時代：1'))
 
-  * 2014-
+  * 2013-
   * minitest 5 introduced incompatible change\n
     (('note:minitest 5で非互換の変更が入った'))
 
@@ -423,9 +423,72 @@ Engl-ish\n
     * No test/unit means existing tests can't be worked\n
       (('note:test/unitがなくなると既存のテストが動かない'))
 
-= Solution: 1\n(('note:解決案：1'))
+= Solution idea: 1\n(('note:解決案：1'))
 
   * Keep bundling and using minitest 4\n
     (('note:minitest 4のバンドルを継続し、使い続ける'))
     * Users will be confused because the latest Ruby doesn't bundle the latest minitest\n
       (('note:最新のRubyに最新のminitestがバンドルされていないとユーザーは混乱しそう'))
+
+= Solution idea: 2\n(('note:解決案：2'))
+
+  * Bundle the latest minitest\n
+    (('note:最新のminitestをバンドルする'))
+    * Ruby uses minitest 4 and test/unit for its tests\n
+      (('note:Rubyのテストにはminitest 4とtest/unitを使う'))
+
+(('wait'))
+(('tag:center'))
+Accepted!
+
+= Note for idea 2\n(('note:案2の補足'))
+
+  * Need to care existing Test::Unit API users\n
+    (('note:既存のTest::Unit APIユーザーをケアする必要がある'))
+    * Backward compat. is important!\n
+      (('note:後方互換性は重要！'))
+  * Bundle test-unit gem too for Test::Unit API\n
+    (('note:Test::Unit互換APIのためにtest-unit gemもバンドル'))
+
+= Wrap up: Ruby 2.1 times\n(('note:Ruby 2.1時代のまとめ'))
+
+  * Ruby developers decided maintain minitest 4 and test/unit for Ruby's tests\n
+    (('note:Ruby開発者はRubyのテスト用にminitest 4とtest/unitをメンテナンスすることを決めた'))
+
+= Ruby 2.2 times: 1\n(('note:Ruby 2.2の時代：1'))
+
+  * 2014-
+  * Update bundled minitest to 5\n
+    (('note:バンドルしているminitestを5に更新'))
+    * Move minitest 4 and test/unit to test/\n
+      (('note:minitest 4とtest/unitはtest/以下に移動'))
+
+= Update minitest to 5\n(('note:minitest 5に更新'))
+
+  # coderay diff
+  -      lib/minitest/*.rb
+  + test/lib/minitest/*.rb
+  -      lib/test/unit.rb
+  + test/lib/test/unit.rb
+  -      lib/test/unit/**/*.rb
+  + test/lib/test/unit/**/*.rb
+
+= Ruby 2.2 times: 2\n(('note:Ruby 2.2の時代：2'))
+
+  * Bundle test-unit gem again for users\n
+    (('note:再びtest-unit gemをバンドル'))
+    * Ruby 1.9 dropped test-unit gem\n
+      (('note:Ruby 1.9はtest-unit gemを捨てた'))
+
+= Bundle test-unit again\n(('note:test-unitを再びバンドル'))
+
+test-unit gem provides:
+
+  lib/test-unit.rb
+  lib/test/unit.rb
+  lib/test/unit/**/*.rb
+
+= test/unit in Ruby 2.2
+
+  * test/unit means test/lib/test/unit for Ruby developers
+  * test/unit means lib/test/unit for users
