@@ -445,7 +445,7 @@ Accepted!
 
   * Need to care existing Test::Unit API users\n
     (('note:既存のTest::Unit APIユーザーをケアする必要がある'))
-    * Backward compat. is important!\n
+    * Backward compat is important!\n
       (('note:後方互換性は重要！'))
   * Bundle test-unit gem too for Test::Unit API\n
     (('note:Test::Unit互換APIのためにtest-unit gemもバンドル'))
@@ -458,12 +458,12 @@ Accepted!
 = Ruby 2.2 times: 1\n(('note:Ruby 2.2の時代：1'))
 
   * 2014-
-  * Update bundled minitest to 5\n
+  * Upgrade bundled minitest to 5\n
     (('note:バンドルしているminitestを5に更新'))
     * Move minitest 4 and test/unit to test/\n
       (('note:minitest 4とtest/unitはtest/以下に移動'))
 
-= Update minitest to 5\n(('note:minitest 5に更新'))
+= Upgrade minitest to 5\n(('note:minitest 5に更新'))
 
   # coderay diff
   -      lib/minitest/*.rb
@@ -488,9 +488,109 @@ test-unit gem provides:
   lib/test/unit.rb
   lib/test/unit/**/*.rb
 
-= test/unit in Ruby 2.2
+= test/unit in Ruby 2.2\n(('note:Ruby 2.2のtest/unit'))
 
-  * test/unit means test/lib/test/unit for Ruby developers
-  * test/unit means lib/test/unit for users
+  * For Ruby developers\n
+    (('note:Ruby開発者にとっては'))
+    * test/lib/test/unit
+  * For users\n
+    (('note:ユーザーにとっては'))
+    * lib/test/unit = test-unit gem
+
+= Wrap up: Ruby 2.2 times\n(('note:Ruby 2.2時代のまとめ'))
+
+  * Bundle minitest 5\n
+    (('note:minitest 5をバンドル'))
+  * Bundle test-unit again\n
+    (('note:再びtest-unitをバンドル'))
+  * Ruby's tests use forked mintiest 4 and test/unit\n
+    (('note:Rubyのテストはフォークしたminitest 4とtest/unitを使う'))
+
+= Ruby 2.3 times\n(('note:Ruby 2.3の時代'))
+
+  * 2015-
+  * No highly important things\n
+    (('note:特筆すべきことはない'))
+
+= Wrap up: History: 1\n(('note:歴史のまとめ：1'))
+
+  * Ruby 1.4 and 1.6 didn't bundle any testing framework\n
+    (('note:Ruby 1.4と1.6はテスティングフレームワークをバンドル'))\n
+    (('note:していなかった'))
+  * Test::Unit was born in Ruby 1.6 times\n
+    (('note:Ruby 1.6の時代にTest::Unitが生まれた'))
+    * The 1st (({/\Atest.+unit\z/i}))
+
+= Wrap up: History: 2\n(('note:歴史のまとめ：2'))
+
+  * Ruby 1.8 bundled Test::Unit\n
+    (('note:Ruby 1.8はTest::Unitをバンドルした'))
+    * (({/\Atest.+unit\z/i})) in 1.8
+  * Ruby 1.9 dropped Test::Unit and
+    bundled minitest\n
+    (('note:Ruby 1.9はTest::Unitを捨ててminitestをバンドルした'))
+
+= Wrap up: History: 3\n(('note:歴史のまとめ：3'))
+
+  * Ruby 1.9 provided test/unit as a wrapper of minitest\n
+    (('note:Ruby 1.9はminitestのラッパーとしてtest/unitを提供した'))
+    * test/unit provided Test::Unit compatible API\n
+      (('note:test/unitはTest::Unitの互換APIを提供した'))
+    * (({/\Atest.+unit\z/i})) in 1.9
+
+= Wrap up: History: 4\n(('note:歴史のまとめ：4'))
+
+  * Ruby 2.0 is same as Ruby 1.9\n
+    (('note:Ruby 2.0の状況はRuby 1.9と変わらない'))
+    * test/unit is (({/\Atest.+unit\z/i})) in 2.0\n
+      (('note:つまり、2.0での(({/\Atest.+unit\z/i}))はtest/unit'))
+
+= Wrap up: History: 5\n(('note:歴史のまとめ：5'))
+
+  * Ruby 2.1 didn't upgrade minitest to 5\n
+    (('note:Ruby 2.1はminitestを5に更新しなかった'))
+    * minitest 5 has backward incompatible changes\n
+      (('note:minitest 5には後方非互換の変更があった'))
+    * It breaks Ruby's tests\n
+      (('note:非互換を受け入れるとRubyのテストが動かなくなる'))
+
+= Wrap up: History: 6\n(('note:歴史のまとめ：6'))
+
+  * Ruby 2.2 upgraded minitest\n
+    (('note:Ruby 2.2はminitestを5に更新した'))
+    * Dropped test/unit as minitest wrapper\n
+      (('note:Ruby 2.2はminitestのラッパーのtest/unitを捨てた'))
+    * Used forked minitest 4 and test/unit for its tests\n
+      (('note:Ruby 2.2はRubyのテスト用にminitest 4のフォークとtest/unitを使うことにした'))
+
+= Wrap up: History: 7\n(('note:歴史のまとめ：7'))
+
+  * Ruby 2.2 bundled test-unit gem again\n
+    (('note:Ruby 2.2はtest-unit gemを再びバンドルした'))
+    * (({/\Atest.+unit\z/i})) in 2.2
+
+= Wrap up: History: 8\n(('note:歴史のまとめ：8'))
+
+  * No highly important things in Ruby 2.3\n
+    (('note:Ruby 2.3には特筆すべきことはない'))
+
+= What's (({/\Atest.+unit\z/i}))\n(('note:(({/\\Atest.+unit\\z/i}))はなにか'))
+
+Test::Unit compatible API\n
+(('note:Test::Unit互換API'))
+
+= Test::Unit compat API\n(('note:Test::Unit互換API'))
+
+  # coderay ruby
+  class XXXTest < Test::Unit::TestCase
+    def test_xxx
+      assert_equal(xxx, yyy)
+    end
+  end
+
+= Test::Unit API spirit\n(('note:Test::Unit APIの魂'))
+
+Ruby-ish\n
+(('note:Rubyらしさ'))
 
 = TODO...
