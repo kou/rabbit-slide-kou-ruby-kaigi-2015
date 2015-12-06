@@ -119,6 +119,14 @@ Which Rubies do include\n
   * The first xUnit testing framework for Ruby\n
     (('note:最初のRuby用のxUnit系テスティングフレームワーク'))
 
+= FYI: XP\n(('note:参考情報：XP'))
+
+  * eXtream Programing
+  * The first XP book was published at 1999\n
+    (('note:最初のXPの本は1999年に出版'))
+  * xUnit was born from XP\n
+    (('note:xUnitはXPが生み出した'))
+
 = RubyUnit: API
 
   # coderay ruby
@@ -247,22 +255,6 @@ Ruby-ish\n
   # coderay ruby
   require "test/unit"
 
-= Test::Unit in Ruby 1.8\n(('note:Ruby 1.8バンドル後のTest::Unit'))
-
-  * No active development\n
-    (('note:開発は停滞'))
-  * Maintainer was changed\n
-    (('note:メンテナー交代'))
-    * The author of minitest\n
-      (('note:後のminitestの作者'))
-
-= Test::Unit:\nnew maintainer\n(('note:新しいメンテナー'))
-
-  * New maintainer said:\n
-    (('note:新メンテナー曰く'))
-    * Can't maintain Test::Unit because it's too complex\n
-      (('note:Test::Unitは複雑すぎてメンテナンスできない'))
-
 = Ruby 1.8 times: 2\n(('note:Ruby 1.8の時代：2'))
 
 RSpec was born\n
@@ -314,6 +306,29 @@ Engl-ish\n
     * Mock, Not implemented, ...\n
       (('note:モックや未実装など'))
 
+= Test::Unit in Ruby 1.8\n(('note:Ruby 1.8バンドル後のTest::Unit'))
+
+  * No active development\n
+    (('note:開発は停滞'))
+  * Maintainer was changed\n
+    (('note:メンテナー交代'))
+    * The author of minitest\n
+      (('note:後のminitestの作者'))
+
+= RSpec and Test::Unit
+
+  * RSpec is getting better but Test::Unit isn't changed...\n
+    (('note:RSpecはよくなっているのにTest::Unitは変わらない。。。'))
+  * Test::Unit should also be getting better!\n
+    (('note:Test::Unitももっとよくしたい！'))
+
+= Test::Unit:\nnew maintainer\n(('note:新しいメンテナー'))
+
+  * New maintainer said:\n
+    (('note:新メンテナー曰く'))
+    * Can't maintain Test::Unit because it's too complex\n
+      (('note:Test::Unitは複雑すぎてメンテナンスできない'))
+
 = Wrap up: Ruby 1.8 times\n(('note:Ruby 1.8時代のまとめ'))
 
   * Ruby starts bundling Test::Unit (('note:((({/\\Atest.+unit\\z/i})))'))\n
@@ -350,8 +365,8 @@ Engl-ish\n
     (('note:開発は活発'))
   * High backward compatibility\n
     (('note:高い後方互換性'))
-    * Exception: Inheritance, Mixin\n
-      (('note:例外：継承時・Mixin時の挙動'))
+    * Exception: Inheritance\n
+      (('note:例外：継承時の挙動'))
 
 = minitest
 
@@ -374,8 +389,6 @@ Engl-ish\n
 
 = test/unit in Ruby 1.9
 
-  * Not Test::Unit (('note:but (({/\\Atest.+unit\\z/i}))'))\n
-    (('note:Test::Unitではないが(({/\\Atest.+unit\\z/i}))ではある'))
   * Provide Test::Unit API\n
     (('note:Test::Unit互換APIを提供'))
   * Wrapper of minitest\n
@@ -383,6 +396,8 @@ Engl-ish\n
     * Ruby developers developed it\n
       not minitest author\n
       (('note:minitestの作者ではなくRuby開発者が開発'))
+  * Not Test::Unit (('note:but (({/\\Atest.+unit\\z/i}))'))\n
+    (('note:Test::Unitではないが(({/\\Atest.+unit\\z/i}))ではある'))
 
 = Wrap up: Ruby 1.9 times\n(('note:Ruby 1.9時代のまとめ'))
 
@@ -594,4 +609,293 @@ Test::Unit compatible API\n
 Ruby-ish\n
 (('note:Rubyらしさ'))
 
-= TODO...
+= Ruby-ish in Test::Unit\n(('note:Test::UnitでのRubyらしさ'))
+
+  * Write test as normal Ruby script\n
+    (('note:普通のRubyスクリプトのようにテストを書ける'))
+    * It's also important in minitest\n
+      (('note:minitestもこれを大事にしている'))
+
+= By example: 1\n(('note:実例：1'))
+
+(('tag:center'))
+(('tag:x-large'))
+Grouping tests\n
+(('note:テストのグループ化'))
+
+(('wait'))
+(('tag:center'))
+(('tag:x-large'))
+↓\n
+class
+
+= Group: 1\n(('note:グループ化：1'))
+
+  # coderay ruby
+  class TestAdd < Test::Unit::TestCase
+    def test_positive_positive
+      assert_equal(3, 1 + 2)
+    end
+
+    def test_positive_negative
+      assert_equal(-2, 1 + -3)
+    end
+  end
+
+= Group: 2\n(('note:グループ化：2'))
+
+  # coderay ruby
+  class TestSub < Test::Unit::TestCase
+    def test_positive_positive
+      assert_equal(-2, 1 - 3)
+    end
+
+    def test_positive_negative
+      assert_equal(4, 1 - -3)
+    end
+  end
+
+= Group: 3\n(('note:グループ化：3'))
+
+  # coderay ruby
+  class TestCalc < Test::Unit::TestCase
+    class TestAdd < self # TestAdd < TestCalc
+      # def test_positive_positive
+      # def test_positive_negative
+    end
+    class TestSub < self # TestAdd < TestCalc
+      # def test_positive_positive
+      # def test_positive_negative
+    end
+  end
+
+= Wrap up: Group: 1\n(('note:グループ化のまとめ：1'))
+
+  * Test case has tests\n
+    (('note:テストケースは複数のテストを持つ'))
+    * Test case is class\n
+      (('note:テストケースをクラスとして実装'))
+    * Test is method\n
+      (('note:テストをメソッドとして実装'))
+    * Class has methods\n
+      (('note:クラスは複数のメソッドを持つ'))
+
+= Wrap up: Group: 2\n(('note:グループ化のまとめ：2'))
+
+  * Sub test case is sub class\n
+    (('note:サブテストケースはサブクラスとして実装'))
+    * Sub test case is-a parent test case\n
+      (('note:TestAdd is a test case of TestCalc'))\n
+      (('note:サブテストケースは親テストケースとis-aの関係'))
+
+= FYI: Group\n(('note:参考情報：グループ化'))
+
+  * Test::Unit and minitest don't support sub test case is a sub class\n
+    (('note:Test::Unitとminitestはサブクラスでサブテストケースを作ることをサポートしていない'))
+  * test-unit only supports it\n
+    (('note:test-unitだけがサポートしている'))
+    * It's only one incompatibles\n
+      (('note:唯一の非互換'))
+
+= By example: 2\n(('note:実例：2'))
+
+(('tag:center'))
+(('tag:x-large'))
+Share tests\n
+(('note:テストの共有'))
+
+(('wait'))
+(('tag:center'))
+(('tag:x-large'))
+↓\n
+module
+
+= Share: 1\n(('note:共有：1'))
+
+  # coderay ruby
+  module KVSTests
+    def test_read_write
+      @kvs[:key] = :value
+      assert_equal(:value, @kvs[:key])
+    end
+  end
+
+= Share: 2\n(('note:共有：2'))
+
+  # coderay ruby
+  class TestKVSHash < Test::Unit::TestCase
+    include KVSTests
+    def setup; @kvs = {}; end
+  end
+  class TestKVSOpenStruct < Test::Unit::TestCase
+    include KVSTests
+    def setup; @kvs = OpenStruct.new; end
+    end
+  end
+
+= Wrap up: Share\n(('note:共有のまとめ'))
+
+  * Tests can be shared by module\n
+    (('note:モジュールでテストを共有できる'))
+    * Module is used for sharing method implementations in Ruby\n
+      (('note:Rubyではモジュールはメソッドの実装を共有するために使われている'))
+
+= By example: 3\n(('note:実例：3'))
+
+(('tag:center'))
+(('tag:x-large'))
+Assertion\n
+(('note:アサーション'))
+
+(('wait'))
+(('tag:center'))
+(('tag:x-large'))
+↓\n
+Write as-is\n
+(('note:そのまま書く'))
+
+= Assert: Equal\n(('note:アサート：等価'))
+
+  # coderay ruby
+  def test_add
+    assert_equal(3,
+                 1 + 2)
+                 # ↑↓ as-is
+    # RSpec: expect(1 + 2).eq 3
+  end
+
+= Assert: Predicate\n(('note:アサート：述語'))
+
+  # coderay ruby
+  def test_exist_readme
+    assert(File.exist?("README"))
+           # ↑ as-is ↓ not as-is
+    # RSpec: expect(File).to exist("README")
+  end
+
+= Message from minitest
+
+  # _
+    1) Failure:
+  TestFile#test_exist_readme [test-file-minitest.rb:5]:
+  Failed assertion, no message given.
+
+(('tag:center'))
+Less information
+
+= Message from RSpec
+
+  # pango
+  1) File README should exist
+     <span foreground="red">Failure/Error: expect(File).to exist("README")</span>
+       <span foreground="red">expected File to exist</span>
+     <span foreground="cyan"># ./spec-file.rb:5:in `block (2 levels) in &lt;top (required)&gt;'</span>
+
+(('tag:center'))
+Colorized and snippet
+
+= Message from test-unit
+
+  # pango
+  <span foreground="white" background="red">Failure</span>: &lt;false&gt; is not true.
+  test_exist_readme(TestFile)
+  test-file-test-unit.rb:5:in `test_exist_readme'
+       2: 
+       3: class TestFile &lt; Test::Unit::TestCase
+       4:   def test_exist_readme
+  <span foreground="white" background="red">  =&gt; 5:     assert(File.exist?("README"))</span>
+       6:   end
+       7: end
+
+(('tag:center'))
+Colorized and snippet
+
+= power-assert
+
+  # coderay ruby
+  def test_exist_readme
+    assert do
+      File.exist?("README")
+      # ↑ as-is
+    end
+  end
+
+(('tag:center'))
+(('note:Built-in in test-unit'))
+
+= Message: power-assert
+
+  # pango
+  <span foreground="white" background="red">Failure</span>:
+          File.exist?("README")
+          |    |
+          |    false
+          File (NOTE: ← Receiver information)
+  test_exist_readme(TestFile)
+  /usr/lib/ruby/vendor_ruby/power_assert.rb:36:in `start'
+  test-file-power-assert.rb:5:in `test_exist_readme'
+       2: 
+       3: class TestFile &lt; Test::Unit::TestCase
+       4:   def test_exist_readme
+  <span foreground="white" background="red">  =&gt; 5:     assert do</span>
+       6:       File.exist?("README")
+       7:     end
+       8:   end
+
+= FYI: test-unit and power-assert
+
+  * Don't recommend\n
+    "all power-assert"\n
+    (('note:すべてpower-assertは非推奨'))
+    * Recommend "power-assert only for predicate"\n
+      (('note:述語だけpower-assertを推奨'))
+
+= Assert: Equal
+
+  # coderay ruby
+  # @group.users should return
+  # sorted names of user
+  assert_equal(user_names.sort,
+               @group.users)
+               # ↑ Align-able
+  assert do
+    @group.users == user_names.sort
+  end
+
+= Align\n(('note:縦に並べる'))
+
+  * Indicate compare targets visually\n
+    (('note:視覚的に比較対象ということを示す'))
+  * Clarify differences visually\n
+    (('note:視覚的に違いを明確にする'))
+
+= e.g.: diff\n(('note:例：diff'))
+
+  Hello Heilo
+  -----------
+  Hello
+  Heilo
+
+= Align in Ruby\n(('note:Rubyで縦に並べる'))
+
+  # coderay ruby
+  # Arguments are natural
+  method(arg1,
+         arg2)
+  # Operands aren't natural
+  operand1 ==
+  operand2
+
+(('tag:center'))
+(('note:引数だと自然だけどオペランドだと不自然'))
+
+= Wrap up: Test::Unit API\n(('note:まとめ：Test::Unit API'))
+
+  * Ruby-ish is important in Test::Unit API\n
+    (('note:Test::Unit APIではRubyらしいことは重要'))
+    * (Sub) test case and (sub) class\n
+      (('note:（サブ）テストケースと（サブ）クラス'))
+    * Share tests and module\n
+      (('note:テストの共有とモジュール'))
+    * as-is in assert\n
+      (('note:アサートではそのままの使い方で書く'))
