@@ -73,8 +73,8 @@ Which Rubies do include\n
   testsupp, RubyUnit
   Lapidary,
   Test::Unit, test/unit
-  test-unit, miniunit
-  minitest, RSpec
+  test-unit, minitest
+  RSpec,
 
 = Ruby 1.3 times\n(('note:Ruby 1.3の時代'))
 
@@ -251,7 +251,7 @@ Ruby-ish\n
 
   * No active development\n
     (('note:開発は停滞'))
-  * Maintainer is changed\n
+  * Maintainer was changed\n
     (('note:メンテナー交代'))
     * The author of minitest\n
       (('note:後のminitestの作者'))
@@ -338,7 +338,7 @@ Engl-ish\n
     * Still (({/\Atest.+unit\z/i}))\n
       (('note:名前変更後も(({/\Atest.+unit\z/i}))'))
     * (('note:test-unit 1.2.3 == Test::Unit in Ruby 1.8'))
-  * Maintainer is changed\n
+  * Maintainer was changed\n
     (('note:メンテナー交代'))
     * Me\n
       (('note:私'))
@@ -369,6 +369,8 @@ Engl-ish\n
     (('note:作者曰く'))
     * 100% Test::Unit compatible\n
       (('note:Test::Unitと100%互換'))
+    * But it's not compat in fact...\n
+      (('note:実際は互換ではなかった。。。'))
 
 = test/unit in Ruby 1.9
 
@@ -378,19 +380,19 @@ Engl-ish\n
     (('note:Test::Unit互換APIを提供'))
   * Wrapper of minitest\n
     (('note:minitestのラッパー'))
-    * Ruby developers develop it\n
+    * Ruby developers developed it\n
       not minitest author\n
       (('note:minitestの作者ではなくRuby開発者が開発'))
 
 = Wrap up: Ruby 1.9 times\n(('note:Ruby 1.9時代のまとめ'))
 
-  * Ruby drops Test::Unit\n
+  * Ruby dropped Test::Unit\n
     (('note:RubyがTest::Unitを捨てた'))
     * (('note:Test::Unit → test-unit gem'))
-  * Ruby bundles minitest\n
+  * Ruby bundled minitest\n
     (('note:Rubyはminitestをバンドルした'))
-  * Ruby creates test/unit\n
-    (('note:(test/unit provides Test::Unit API)'))\n
+  * Ruby created test/unit\n
+    (('note:(test/unit provided Test::Unit API)'))\n
     (('note:RubyはTest::Unit APIを提供する(({test/unit}))を新しく作った'))
 
 = Ruby 2.0 times\n(('note:Ruby 2.0の時代'))
@@ -418,8 +420,8 @@ Engl-ish\n
 
 = Is no test/unit problem?\n(('note:test/unitがないことは問題なのか？'))
 
-  * Ruby uses test/unit for Ruby's test\n
-    (('note:RubyはRubyのテストにtest/unitを使っている'))
+  * Ruby used test/unit for Ruby's test\n
+    (('note:RubyはRubyのテストにtest/unitを使っていた'))
     * No test/unit means existing tests can't be worked\n
       (('note:test/unitがなくなると既存のテストが動かない'))
 
@@ -519,15 +521,14 @@ test-unit gem provides:
     (('note:していなかった'))
   * Test::Unit was born in Ruby 1.6 times\n
     (('note:Ruby 1.6の時代にTest::Unitが生まれた'))
-    * The 1st (({/\Atest.+unit\z/i}))
+    * The first (({/\Atest.+unit\z/i}))
 
 = Wrap up: History: 2\n(('note:歴史のまとめ：2'))
 
   * Ruby 1.8 bundled Test::Unit\n
     (('note:Ruby 1.8はTest::Unitをバンドルした'))
     * (({/\Atest.+unit\z/i})) in 1.8
-  * Ruby 1.9 dropped Test::Unit and
-    bundled minitest\n
+  * Ruby 1.9 dropped Test::Unit and bundled minitest\n
     (('note:Ruby 1.9はTest::Unitを捨ててminitestをバンドルした'))
 
 = Wrap up: History: 3\n(('note:歴史のまとめ：3'))
