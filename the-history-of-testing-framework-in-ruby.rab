@@ -39,7 +39,7 @@ You know about\n
 (('tag:center'))
 Which Rubies do include\n
 (({/\Atest.+unit\z/i}))?\n
-(('note:(({/\Atest.+unit\z/i}))を含んでいるRubyはどれでしょう？'))
+(('note:(({/\\Atest.+unit\\z/i}))を含んでいるRubyはどれでしょう？'))
 
   # RT
   delimiter = [|]
@@ -54,7 +54,7 @@ Which Rubies do include\n
 (('tag:center'))
 Which Rubies do include\n
 (({/\Atest.+unit\z/i}))?\n
-(('note:(({/\Atest.+unit\z/i}))を含んでいるRubyはどれでしょう？'))
+(('note:(({/\\Atest.+unit\\z/i}))を含んでいるRubyはどれでしょう？'))
 
   # RT
   delimiter = [|]
@@ -131,7 +131,7 @@ Which Rubies do include\n
 
   # coderay ruby
   require "runit/testcase"
-  class Test < RUNIT::TestCase
+  class TestCalc < RUNIT::TestCase
     def test_add
       assert_equal(3, 1 + 2)
     end
@@ -142,7 +142,7 @@ Which Rubies do include\n
 Ruby-ish\n
 (('note:Rubyっぽい'))
 
-= RubyUnit: FYI\n(('note:参考情報'))
+= RubyUnit: FYI\n(('note:RubyUnit：参考情報'))
 
   * Test generator exists\n
     (('note:テストジェネレーターがある'))
@@ -150,7 +150,7 @@ Ruby-ish\n
     (('note:テスト実行コマンドがある'))
   * (('wait'))
     (('note:rubyunit gem exists since 2014-10-12'))\n
-    (('note:rubyunitというgemが存在する'))
+    (('note:rubyunitというgemが2014年10月12日から存在する'))
     * (('note:Not related product'))\n
       (('note:関係のないプロダクト'))
 
@@ -202,7 +202,7 @@ Not Ruby-ish\n
 
   * Since 2002-02:\n
     [ruby-talk:34744]
-  * The first (({\A/test.+unit\z/}))\n
+  * The first (({/\Atest.+unit\z/i}))\n
     (('note:最初の(({/\\Atest.+unit\\z/i}))'))
   * The author is the author of Lapidary\n
     (('note:Lapidaryの作者が作者'))
@@ -341,7 +341,7 @@ Engl-ish\n
 = Ruby 1.9 times\n(('note:Ruby 1.9の時代'))
 
   * 2009-2014
-  * Ruby drops Test::Unit\n
+  * Ruby dropped Test::Unit\n
     (('note:RubyがTest::Unitを捨てた'))
     * Because Test::Unit is too complex for new maintainer\n
       (('note:新メンテナーにはTest::Unitは複雑すぎるから'))
@@ -351,7 +351,7 @@ Engl-ish\n
   * Released as test-unit gem\n
     (('note:test-unit gemとしてリリース'))
     * Still (({/\Atest.+unit\z/i}))\n
-      (('note:名前変更後も(({/\Atest.+unit\z/i}))'))
+      (('note:名前変更後も(({/\\Atest.+unit\\z/i}))'))
     * (('note:test-unit 1.2.3 == Test::Unit in Ruby 1.8'))
   * Maintainer was changed\n
     (('note:メンテナー交代'))
@@ -694,7 +694,7 @@ class
     (('note:Test::Unitとminitestはサブクラスでサブテストケースを作ることをサポートしていない'))
   * test-unit only supports it\n
     (('note:test-unitだけがサポートしている'))
-    * It's only one incompatibles\n
+    * It's only one incompatible\n
       (('note:唯一の非互換'))
 
 = By example: 2\n(('note:実例：2'))
