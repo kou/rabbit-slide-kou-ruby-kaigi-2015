@@ -193,7 +193,7 @@ Not Ruby-ish\n
 
 = Ruby 1.6 times: 2\n(('note:Ruby 1.6の時代：2'))
 
-  * Start trying to bundle a testing framework to Ruby\n
+  * Started trying to bundle a testing framework to Ruby\n
     (('note:テスティングフレームワークをRubyにバンドルする'))\n
     (('note:試みを開始'))
     * RubyUnit + Lapidary = Test::Unit
@@ -331,7 +331,7 @@ Engl-ish\n
 
 = Wrap up: Ruby 1.8 times\n(('note:Ruby 1.8時代のまとめ'))
 
-  * Ruby starts bundling Test::Unit (('note:((({/\\Atest.+unit\\z/i})))'))\n
+  * Ruby started bundling Test::Unit (('note:((({/\\Atest.+unit\\z/i})))'))\n
     (('note:RubyがTest::Unitのバンドルを始めた'))
     * But Test::Unit was died...\n
       (('note:バンドル後、Test::Unitは死んだ。。。'))
@@ -421,7 +421,7 @@ Engl-ish\n
 = Ruby 2.1 times: 1\n(('note:Ruby 2.1の時代：1'))
 
   * 2013-
-  * minitest 5 introduced incompatible change\n
+  * minitest 5 introduced incompatible changes\n
     (('note:minitest 5で非互換の変更が入った'))
 
 = minitest 5
@@ -475,12 +475,12 @@ Accepted!
 = Ruby 2.2 times: 1\n(('note:Ruby 2.2の時代：1'))
 
   * 2014-
-  * Upgrade bundled minitest to 5\n
+  * Upgraded bundled minitest to 5\n
     (('note:バンドルしているminitestを5に更新'))
-    * Move minitest 4 and test/unit to test/\n
+    * Moved minitest 4 and test/unit to test/\n
       (('note:minitest 4とtest/unitはtest/以下に移動'))
 
-= Upgrade minitest to 5\n(('note:minitest 5に更新'))
+= Upgraded minitest to 5\n(('note:minitest 5に更新'))
 
   # coderay diff
   -      lib/minitest/*.rb
@@ -492,12 +492,12 @@ Accepted!
 
 = Ruby 2.2 times: 2\n(('note:Ruby 2.2の時代：2'))
 
-  * Bundle test-unit gem again for users\n
+  * Bundled test-unit gem again for users\n
     (('note:再びtest-unit gemをバンドル'))
     * Ruby 1.9 dropped test-unit gem\n
       (('note:Ruby 1.9はtest-unit gemを捨てた'))
 
-= Bundle test-unit again\n(('note:test-unitを再びバンドル'))
+= Bundled test-unit again\n(('note:test-unitを再びバンドル'))
 
 test-unit gem provides:
 
@@ -514,13 +514,22 @@ test-unit gem provides:
     (('note:ユーザーにとっては'))
     * lib/test/unit = test-unit gem
 
+= FYI: test/lib/test/unit
+
+  * Includes useful features for Ruby's tests\n
+    (('note:Ruby本体のテストに便利な機能が入っている'))
+    * Leak checker for file descriptor, threads, process...\n
+      (('note:リークチェッカー：ファイルディスクリプターやスレッドのリークやゾンビプロセスを検出'))
+    * Memory usage profiler\n
+      (('note:メモリー使用量のプロファイラー'))
+
 = Wrap up: Ruby 2.2 times\n(('note:Ruby 2.2時代のまとめ'))
 
-  * Bundle minitest 5\n
+  * Bundled minitest 5\n
     (('note:minitest 5をバンドル'))
-  * Bundle test-unit again\n
+  * Bundled test-unit again\n
     (('note:再びtest-unitをバンドル'))
-  * Ruby's tests use forked mintiest 4 and test/unit\n
+  * Ruby's tests used forked mintiest 4 and test/unit\n
     (('note:Rubyのテストはフォークしたminitest 4とtest/unitを使う'))
 
 = Ruby 2.3 times\n(('note:Ruby 2.3の時代'))
@@ -528,6 +537,8 @@ test-unit gem provides:
   * 2015-
   * No highly important things\n
     (('note:特筆すべきことはない'))
+    * test-unit, minitest, test/lib/test/unit and RSpec were actively developed\n
+      (('note:test-unitもminitestもtest/lib/test/unitもRSpecも活発に開発が進んでいた'))
 
 = Wrap up: History: 1\n(('note:歴史のまとめ：1'))
 
@@ -567,7 +578,7 @@ test-unit gem provides:
     (('note:Ruby 2.1はminitestを5に更新しなかった'))
     * minitest 5 has backward incompatible changes\n
       (('note:minitest 5には後方非互換の変更があった'))
-    * It breaks Ruby's tests\n
+    * They breaks Ruby's tests\n
       (('note:非互換を受け入れるとRubyのテストが動かなくなる'))
 
 = Wrap up: History: 6\n(('note:歴史のまとめ：6'))
@@ -586,6 +597,12 @@ test-unit gem provides:
     * (({/\Atest.+unit\z/i})) in 2.2
 
 = Wrap up: History: 8\n(('note:歴史のまとめ：8'))
+
+  * test/lib/test/unit was evolved for Ruby's tests\n
+    (('note:test/lib/test/unitはRubyのテスト用に進化した'))
+    * (({/\Atest.+unit\z/i})) in 2.2 too
+
+= Wrap up: History: 9\n(('note:歴史のまとめ：9'))
 
   * No highly important things in Ruby 2.3\n
     (('note:Ruby 2.3には特筆すべきことはない'))
@@ -613,7 +630,7 @@ Ruby-ish\n
 
   * Write test as normal Ruby script\n
     (('note:普通のRubyスクリプトのようにテストを書ける'))
-    * It's also important in minitest\n
+    * It's important in minitest too\n
       (('note:minitestもこれを大事にしている'))
 
 = By example: 1\n(('note:実例：1'))
@@ -694,8 +711,23 @@ class
     (('note:Test::Unitとminitestはサブクラスでサブテストケースを作ることをサポートしていない'))
   * test-unit only supports it\n
     (('note:test-unitだけがサポートしている'))
-    * It's only one incompatible\n
+    * It's the only incompatible\n
       (('note:唯一の非互換'))
+
+= FYI: Group DSL\n(('note:参考情報：グループ化DSL'))
+
+  # coderay ruby
+  class TestCalc < Test::Unit::TestCase
+    sub_test_case "+" do
+      test "positive + negative" {}
+    end
+    sub_test_case "-" do
+      test "positive - negative" {}
+    end
+  end
+
+(('tag:center'))
+test-unit feature
 
 = By example: 2\n(('note:実例：2'))
 
@@ -814,14 +846,13 @@ Colorized and snippet
 
   # coderay ruby
   def test_exist_readme
-    assert do
+    assert do # ↓ as-is
       File.exist?("README")
-      # ↑ as-is
     end
   end
 
 (('tag:center'))
-(('note:Built-in in test-unit'))
+Built-in in test-unit
 
 = Message: power-assert
 
@@ -869,10 +900,20 @@ Colorized and snippet
   * Clarify differences visually\n
     (('note:視覚的に違いを明確にする'))
 
-= e.g.: diff\n(('note:例：diff'))
+= Experiment: 1\n(('note:実験：1'))
 
-  Hello Heilo
-  -----------
+(('tag:center'))
+Find a difference!\n
+(('note:違うところを探せ！'))
+
+  Hello | Heilo
+
+= Experiment: 2\n(('note:実験：2'))
+
+(('tag:center'))
+Find a difference!\n
+(('note:違うところを探せ！'))
+
   Hello
   Heilo
 
@@ -889,13 +930,77 @@ Colorized and snippet
 (('tag:center'))
 (('note:引数だと自然だけどオペランドだと不自然'))
 
+= FYI: Fixture\n(('note:参考情報：フィクスチャー'))
+
+Ensure\n
+clean test environment\n
+(('note:キレイなテスト環境を用意する仕組み'))
+
+= Fixture: e.g.\n(('note:フィクスチャー：例'))
+
+  # coderay ruby
+  def setup;    p :s;  end
+  def teardown; p :t;  end
+  def test_1;   p :t1; end
+  def test_2;   p :t2; end
+  # :s -> :t1 -> :t ->
+  # :s -> :t2 -> :t
+
+= Fixture: Open file\n(('note:フィクスチャー：ファイルを開く'))
+
+  # coderay ruby
+  def setup
+    @file = File.open("x")
+  end
+  def teardown
+    @file.close
+  end
+
+= Fixture: Open file\n(('note:フィクスチャー：ファイルを開く'))
+
+Not Ruby-ish\n
+(('note:Rubyっぽくない'))
+
+= Fixture: Open File\n(('note:フィクスチャー：ファイルを開く'))
+
+  # coderay ruby
+  def setup # Ruby-ish version
+    File.open("x") do |file|
+      @file = file
+      yield
+    end # Close file automatically
+  end
+
+(('tag:center'))
+New feature in test-unit
+
 = Wrap up: Test::Unit API\n(('note:まとめ：Test::Unit API'))
 
   * Ruby-ish is important in Test::Unit API\n
     (('note:Test::Unit APIではRubyらしいことは重要'))
-    * (Sub) test case and (sub) class\n
-      (('note:（サブ）テストケースと（サブ）クラス'))
-    * Share tests and module\n
-      (('note:テストの共有とモジュール'))
-    * as-is in assert\n
-      (('note:アサートではそのままの使い方で書く'))
+
+= Wrap up: Test::Unit API\n(('note:まとめ：Test::Unit API'))
+
+  * (('note:(Sub)')) test case by (('note:(sub)')) class\n
+    (('note:（サブ）テストケースには（サブ）クラスを使う'))
+  * Share tests by module\n
+    (('note:テストの共有にはモジュールを使う'))
+  * as-is in assert\n
+    (('note:アサートではそのままの使い方で書く'))
+
+= Wrap up: Test::Unit API\n(('note:まとめ：Test::Unit API'))
+
+  * More Ruby-ish\n
+    (('note:さらにRubyっぽく'))
+    * Support block based fixture\n
+      (('note:ブロックを使ったフィクスチャーもサポート'))
+
+= Goal\n(('note:目標'))
+
+(('tag:center'))
+(('tag:large'))
+You know about\n
+(({/\Atest.+unit\z/i}))
+
+(('tag:center'))
+(('note:(({/\\Atest.+unit\\z/i}))を知ること'))
