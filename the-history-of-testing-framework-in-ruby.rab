@@ -236,15 +236,15 @@ Ruby-ish\n
 = Wrap up: Before Ruby 1.8\n(('note:Ruby 1.8の前までのまとめ'))
 
   * testsupp: Perl like API
-  * RubyUnit: Rubyish xUnit
-  * Lapidary: Not Rubyish xUnit
+  * RubyUnit: Ruby-ish xUnit
+  * Lapidary: Not Ruby-ish xUnit
   * Test::Unit:
     * RubyUnit API + Lapidary Impl.
 
 = Ruby 1.8 times: 1\n(('note:Ruby 1.8の時代：1'))
 
   * 2003-2013
-  * Ruby bundles a testing framework\n
+  * Ruby bundled a testing framework\n
     (('note:Rubyがテスティングフレームワークをバンドルした'))
     * Test::Unit aka test/unit\n
       (('note:バンドルされたのはTest::Unit'))\n
@@ -435,7 +435,7 @@ Engl-ish\n
 
 = Is no test/unit problem?\n(('note:test/unitがないことは問題なのか？'))
 
-  * Ruby used test/unit for Ruby's test\n
+  * Ruby used test/unit for Ruby's tests\n
     (('note:RubyはRubyのテストにtest/unitを使っていた'))
     * No test/unit means existing tests can't be worked\n
       (('note:test/unitがなくなると既存のテストが動かない'))
@@ -469,7 +469,7 @@ Accepted!
 
 = Wrap up: Ruby 2.1 times\n(('note:Ruby 2.1時代のまとめ'))
 
-  * Ruby developers decided maintain minitest 4 and test/unit for Ruby's tests\n
+  * Ruby developers decided to maintain minitest 4 and test/unit for Ruby's tests\n
     (('note:Ruby開発者はRubyのテスト用にminitest 4とtest/unitをメンテナンスすることを決めた'))
 
 = Ruby 2.2 times: 1\n(('note:Ruby 2.2の時代：1'))
@@ -518,7 +518,7 @@ test-unit gem provides:
 
   * Includes useful features for Ruby's tests\n
     (('note:Ruby本体のテストに便利な機能が入っている'))
-    * Leak checker for file descriptor, threads, process...\n
+    * Leak checker for file descriptor, thread, process...\n
       (('note:リークチェッカー：ファイルディスクリプターやスレッドのリークやゾンビプロセスを検出'))
     * Memory usage profiler\n
       (('note:メモリー使用量のプロファイラー'))
@@ -762,7 +762,6 @@ module
   class TestKVSOpenStruct < Test::Unit::TestCase
     include KVSTests
     def setup; @kvs = OpenStruct.new; end
-    end
   end
 
 = Wrap up: Share\n(('note:共有のまとめ'))
@@ -929,6 +928,14 @@ Find a difference!\n
 
 (('tag:center'))
 (('note:引数だと自然だけどオペランドだと不自然'))
+
+= FYI: test-unit and power-assert
+
+  * Don't recommend\n
+    "all power-assert"\n
+    (('note:すべてpower-assertは非推奨'))
+    * Recommend "power-assert only for predicate"\n
+      (('note:述語だけpower-assertを推奨'))
 
 = FYI: Fixture\n(('note:参考情報：フィクスチャー'))
 
