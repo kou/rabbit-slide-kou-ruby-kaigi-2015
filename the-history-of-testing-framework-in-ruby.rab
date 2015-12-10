@@ -711,7 +711,7 @@ class
     (('note:Test::Unitとminitestはサブクラスでサブテストケースを作ることをサポートしていない'))
   * test-unit only supports it\n
     (('note:test-unitだけがサポートしている'))
-    * It's the only incompatible\n
+    * It's the only one incompatible\n
       (('note:唯一の非互換'))
 
 = FYI: Group DSL\n(('note:参考情報：グループ化DSL'))
