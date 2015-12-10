@@ -1011,3 +1011,14 @@ You know about\n
 
 (('tag:center'))
 (('note:(({/\\Atest.+unit\\z/i}))を知ること'))
+
+# = Announce\n(('note:おしらせ'))
+
+#   # image
+#   # src = private/images/readable-code-workshop.png
+#   # relative_height = 100
+
+# == slide property
+
+# : enable-title-on-image
+#    false
