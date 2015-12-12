@@ -570,7 +570,7 @@ test-unit gem provides:
   * Ruby 2.0 is same as Ruby 1.9\n
     (('note:Ruby 2.0の状況はRuby 1.9と変わらない'))
     * test/unit is (({/\Atest.+unit\z/i})) in 2.0\n
-      (('note:つまり、2.0での(({/\Atest.+unit\z/i}))はtest/unit'))
+      (('note:つまり、2.0での(({/\\Atest.+unit\\z/i}))はtest/unit'))
 
 = Wrap up: History: 5\n(('note:歴史のまとめ：5'))
 
@@ -578,7 +578,7 @@ test-unit gem provides:
     (('note:Ruby 2.1はminitestを5に更新しなかった'))
     * minitest 5 has backward incompatible changes\n
       (('note:minitest 5には後方非互換の変更があった'))
-    * They breaks Ruby's tests\n
+    * They break Ruby's tests\n
       (('note:非互換を受け入れるとRubyのテストが動かなくなる'))
 
 = Wrap up: History: 6\n(('note:歴史のまとめ：6'))
@@ -792,7 +792,7 @@ Write as-is\n
     assert_equal(3,
                  1 + 2)
                  # ↑↓ as-is
-    # RSpec: expect(1 + 2).eq 3
+    # RSpec: expect(1 + 2).to eq(3)
   end
 
 = Assert: Predicate\n(('note:アサート：述語'))
